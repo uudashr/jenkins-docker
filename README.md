@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/uudashr/jenkins-docker.svg?branch=master)](https://travis-ci.org/uudashr/jenkins-docker)
+
 # Jenkins
 The official [Jenkins](https://hub.docker.com/_/jenkins/) doesn't have Docker installed. Since Docker has a lot of value for when we are using [Pipeline](https://jenkins.io/doc/book/pipeline/) so that we need the Jenkins image with Docker inside.
 

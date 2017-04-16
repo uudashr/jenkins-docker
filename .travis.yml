@@ -1,0 +1,18 @@
+language: bash
+
+services:
+  - docker
+
+script:
+  - docker build -t uudashr/jenkins-docker
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master"]; then
+      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+      docker push uudashr/jenkins-docker
+    fi
+
+notification:
+  email:
+    on_success: never
+    on_failure: always
