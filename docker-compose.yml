@@ -1,0 +1,27 @@
+version: '3.1'
+services:
+  jenkins:
+    build: .
+    depends_on:
+      - docker
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - ~/temp/docker/jenkins_home:/var/jenkins_home
+    networks:
+      - front-tier
+      - back-tier
+  docker:
+    image: docker:dind
+    privileged: true
+    volumes:
+      - ~/temp/docker/dind_home:/var/lib/docker
+    networks:
+      - back-tier
+
+networks:
+  front-tier:
+    driver: bridge
+  back-tier:
+    driver: bridge
