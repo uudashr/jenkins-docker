@@ -1,4 +1,4 @@
-FROM jenkins:latest
+FROM jenkinsci/jenkins:lts
 
 ENV DOCKER_HOST tcp://docker:2375
 
